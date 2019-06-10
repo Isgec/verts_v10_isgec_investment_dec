@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_declaration_document345">
+		<t t-call="report.external_layout">
+
+			<div class="page">
+
+
+				<center>
+					<h4>
+						<header>
+							<u>INCOME TAX DECLARATION FORM </u>
+						</header>
+					</h4>
+				</center>
+				<div class="oe_structure" />
+
+				<div class="row">
+
+
+
+					<table class="table">
+						<tr>
+							<td>
+								<strong>
+									<span>Name :</span>
+								</strong>
+								<span t-field="doc.emp_name" />
+							</td>
+
+
+							<td>
+								<strong>
+									<span>Emp.Code :</span>
+								</strong>
+								<span t-field="doc.emp_code" />
+							</td>
+						</tr>
+
+
+						<tr>
+
+							<td>
+								<strong>
+									<span>DESIGNATION :</span>
+								</strong>
+								<span t-esc="doc.employee_id.job_id.name" />
+							</td>
+
+						</tr>
+						<tr>
+
+
+							<td>
+								<strong>
+									<span>Mob.No.</span>
+								</strong>
+								<span t-esc="doc.mobile" />
+							</td>
+
+							<td>
+								<strong>
+									<span> E.MAIL ID :</span>
+								</strong>
+								<span t-esc="doc.email" />
+							</td>
+
+						</tr>
+
+						<tr>
+							<td>
+								<strong>
+									<span>PAN:</span>
+								</strong>
+								<span t-field="doc.pan_no" />
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<strong>
+									<span>RESIDENTIAL ADDRESS</span>
+								</strong>
+								<br />
+								<span t-field="doc.street1" />
+								<span t-field="doc.street2" />
+								<br />
+								<span t-field="doc.city" />
+								<span t-field="doc.country_id" />
+								<br />
+								<span t-field="doc.states" />
+								<span t-field="doc.zip_code" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>
+									<span>(FOR HRA Purpose) </span>
+								</strong>
+								<span></span>
+							</td>
+						</tr>
+
+					</table>
+					<style>
+						.dot {
+						height: 7px;
+						width: 7px;
+						background-color: #4d4d4d;
+						border-radius: 50%;
+						display: inline-block;
+						}
+					</style>
+					<table border="4px solid black" width="100%"
+						class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Sr.No.</th>
+								<th>DECLARATION FORM FOR CLAIMING INCOME TAX REBATE </th>
+								<th>AMOUNT</th>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<strong>
+									<span>1.</span>
+								</strong>
+							</td>
+
+							<td>
+								<strong>
+									<span>DEDUCTIONS AVAILABLE ( CHAPTER - VI - A )</span>
+								</strong>
+							</td>
+							<td>
+								<span></span>
+							</td>
+
+						</tr>
+						<t t-if="doc.details">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Life Insurance Premium paid for self
+										/wife/children.
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details1">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Amount deposited in the post office cumulative Time
+										Deposit - 10 years or 15 years during the period. /Tax Saving
+										FDRs.
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details1" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details2">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Amount deposited to the Public Provident Fund during the
+										period (PF deducted from salary should not be shown )
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details2" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details3">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Date of PPF Deposit
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details3" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details4">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>A/c No. in which PPF is Deposited
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details4" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details5">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Amount deposited under Unit Linked Insurance plan (ULIP)
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details5" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details6">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Amount deposited under National Savings Certificate -
+										VIII
+										Issue (please attach Photocopy/mention certificate No. and
+										date
+										)
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details6" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details7">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Interest accrued on National Savings Certificate</span>
+								</td>
+								<td>
+									<span t-field="doc.details7" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details8">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Installment of part payment of Housing Loan (Principal)
+										to
+										any Bank/LIC/HDFC.
+									</span>
+
+								</td>
+								<td>
+									<span t-field="doc.details8" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details9">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Equity Linked Savings Scheme </span>
+								</td>
+								<td>
+									<span t-field="doc.details9" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details17">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Deduction in respect of Contribution to Sukanya Samriddhi
+										Yojana
+									</span>
+
+								</td>
+								<td>
+									<span t-field="doc.details17" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details32">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Mutual Fund</span>
+
+								</td>
+								<td>
+									<span t-field="doc.details32" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details10">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Tuition Fee Paid (development fees or donation or other
+										charges not to be included) to Educational Institutions for
+										full Time Education (maximum 2 children)
+									</span>
+
+								</td>
+								<td>
+									<span t-field="doc.details10" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details11">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>Deduction in respect of Contribution to certain Pension
+										Fund –80CCC
+									</span>
+								</td>
+
+								<td>
+									<span t-field="doc.details11" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details12">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span> Medical Insurance Premium paid under Mediclaim Insurance
+										Policy.(U/s 80D) Maximum Limit - 25,000/- Applicable amount:
+
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details12" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details31">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span> Medical Insurance Premium paid For Parents/Senior
+										Citizen
+										Med. Ins. Policy.(U/s 80D) Maximum Limit: Non Senior
+										Citizen-25,000, Senior Citizen-50,000-/
+										Applicable amount:
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details31" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details13">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Payment on medical treatment of handicapped dependents
+										(Maximum limit - Rs 75,000/- U/s 80DD ) please enclose
+										certificate
+									</span>
+									<br></br>
+									<span>Disability Type-</span>
+									<span t-field="doc.type_disability" widget="radio" />
+								</td>
+								<td>
+									<span t-field="doc.details13" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details18">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Deduction in respect of Medical Treatment (80DDB-specific
+										diseases)
+									</span>
+									<br></br>
+									<span>Treatment Type-</span>
+									<span t-field="doc.type_treatment" widget="radio" />
+								</td>
+								<td>
+									<span t-field="doc.details18" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details15">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>Deduction from income of assessed suffering from
+										permanent
+										physical disablement) maximum limit – Rs. 125,000/-
+										(U/s 80U)
+										please enclose certificate.
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details15" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details14">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Interest paid for loan taken for higher education – (u/s
+										80E) please enclosed certificate and specify the date of loan
+										taken
+									</span>
+
+								</td>
+								<td>
+									<span t-field="doc.details14" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details19">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Deductions in respect of investment under Rajiv Gandhi
+										Equity Savings Scheme (80CCG)
+									</span>
+
+								</td>
+								<td>
+									<span t-field="doc.details19" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details33">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Deduction in respect of Contribution to National Pension
+										Scheme(NPS)–80CCD(1B)(Maximum limit - Rs 50,000/- Additional
+										from Sec80C)
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details33" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details16">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span> Employer Contribution to NPS-80CCD(2)  </span>
+								</td>
+								<td>
+									<span t-field="doc.details16" />
+								</td>
+
+							</tr>
+						</t>
+						<t t-if="doc.details34">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span> Interest from Savings Bank A/C</span>
+								</td>
+								<td>
+									<span t-field="doc.details34" />
+								</td>
+
+							</tr>
+						</t>
+						<tr>
+							<td>
+								<strong>
+									<span>2</span>
+								</strong>
+							</td>
+
+							<td>
+								<strong>
+									<span>INCOME FROM HOUSE PROPERTY</span>
+								</strong>
+							</td>
+							<td>
+								<span></span>
+							</td>
+
+						</tr>
+						<t t-if="doc.details181">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span> Income / Loss(-) from House Property.
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details181" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details22">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> Self occupied residential property has been acquired or
+											constructed before Current Financial Year (No Benefit is
+											available, if property is not completed/ Possession)
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details22" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details20">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>Interest paid for one self occupied residential property
+											Rs.
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details20" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.pre_emi_interest_paid">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>PRE EMI INTEREST PAID(for Self Occupied Property)
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.pre_emi_interest_paid" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.lender_name">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>Lender Name1/Bank (Self Occupied Property)
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.lender_name" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details191">
+							<tr>
+
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<p>PAN of Lender1/Bank (Mandatory)(Self Occupied
+										Property).
+									</p>
+								</td>
+								<td>
+									<span t-field="doc.details191" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.lender_name2">
+							<tr>
+
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<p>Lender Name2/Bank (Self Occupied Property)</p>
+								</td>
+								<td>
+									<span t-field="doc.lender_name2" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.pan_no_lender2">
+							<tr>
+
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<p>PAN of Lender2/Bank (Mandatory)(Self Occupied
+										Property).
+									</p>
+								</td>
+								<td>
+									<span t-field="doc.pan_no_lender2" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details37">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> Property Situated at (place of said property)</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details37" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details38">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> City </p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details38" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details24">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>Other Property has been acquired or constructed before end
+											of the Current Financial Year (No Benefit is available, if
+											property is not completed/ Possession)
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details24" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details23">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> Interest paid for other properties </p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details23" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details27">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>PRE EMI INTEREST PAID(Other Property)</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details27" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details25">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>Annual Rental income from said property(During the Current Financial Year)</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details25" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.details26">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>Fair rent of same locality (per month) </p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.details26" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.other_lender_name">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> Lender Name1/Bank (Other Property)
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.other_lender_name" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.other_pan_no_lender1">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> PAN of Lender1/Bank (Mandatory)(Other Property).
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.other_pan_no_lender1" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.other_lender_name2">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p> Lender Name2/Bank (Other Property)
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.other_lender_name2" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.other_pan_no_lender2">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+								<td>
+									<span>
+										<p>PAN of Lender2/Bank (Mandatory)(Other Property).
+										</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.other_pan_no_lender2" />
+								</td>
+							</tr>
+						</t>
+
+						<tr>
+							<td>
+								<strong>
+									<span>3</span>
+								</strong>
+							</td>
+
+							<td>
+								<span>
+									<strong>
+										<p>DEDUCTION U/S 10 (13-A)HRA.</p>
+									</strong>
+								</span>
+							</td>
+							<td>
+								<span></span>
+							</td>
+						</tr>
+						<t t-if="doc.house_rent_paid_per_month">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>
+										<p>House Rent Paid (Annually)During the Current Financial Year</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.house_rent_paid_per_month" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.full_name_of_landlord">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>
+										<p> Full Name of Landlord</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.full_name_of_landlord" />
+								</td>
+							</tr>
+						</t>
+						<t
+							t-if="doc.street1 or doc.street2 or doc.city or doc.country_id or doc.states or doc.zip_code">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>
+										<p>Details of Rented Accommodation</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.street1" />
+									<span t-field="doc.street2" />
+									<span t-field="doc.city" />
+									<span t-field="doc.country_id" />
+									<span t-field="doc.states" />
+									<span t-field="doc.zip_code" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.pan_of_landlord">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>
+										<p> PAN No. of Landlord-</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.pan_of_landlord" />
+								</td>
+							</tr>
+						</t>
+						<t t-if="doc.city_metro">
+							<tr>
+								<td style="text-align:right">
+									<span class="dot"></span>
+								</td>
+
+								<td>
+									<span>
+										<p> Is City Metro? (Metro Cities are Only- Delhi, Mumbai, Chennai, Kolkata)</p>
+									</span>
+								</td>
+								<td>
+									<span t-field="doc.city_metro" />
+								</td>
+							</tr>
+						</t>
+					</table>
+					<table>
+						<thead>
+							<th>
+								<u>DECLARATION </u>
+							</th>
+
+						</thead>
+						<td>
+							<br>I hereby declare that particulars furnished herein above are
+								true to the best of my knowledge and belief.
+								I also declare that
+								I will submit all the required proofs before
+								15/01/2019.
+							</br>
+						</td>
+						<thead>
+						</thead>
+
+						<tr>
+
+							<td>
+								<br>
+									<b>Date of Submission:</b>
+								</br>
+								<span t-field="doc.submit_date"
+									t-options='{"format": "dd/MM/yyyy"}'></span>
+							</td>
+							<td class="text-right">
+								<br>
+									<span t-field="doc.emp_name"></span>
+								</br>
+								<b>SIGNATURE </b>
+							</td>
+
+
+						</tr>
+					</table>
+				</div>
+
+
+			</div>
+
+		</t>
+
+
+	</template>
+
+	<template id="report_declaration45">
+		<t t-call="report.html_container">
+			<t t-foreach="docs" t-as="doc">
+				<t
+					t-call="verts_v10_isgec_investment_dec.report_declaration_document345" />
+			</t>
+		</t>
+	</template>
+
+</odoo>

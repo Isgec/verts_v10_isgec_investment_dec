@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+		
+    	<!--Export Form & Action -->
+    	
+        <record id="view_declaration_details_wizard" model="ir.ui.view">
+            <field name="name">Export</field>
+            <field name="model">declaration.details.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Estimate">
+                <group>
+                
+                	 <field name="declaration_version_id" options="{'no_create': True}"/>
+                	</group>
+                	<footer>
+                        <button name="button_excel" string=" Export Declaration Details" type="object" class="oe_highlight"  />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer> 
+                 </form>
+            </field>
+        </record>
+        
+        <record id="action_declaration_details_issue" model="ir.actions.act_window">
+            <field name="name">Export</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">declaration.details.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_declaration_details_wizard" />
+            <field name="target">new</field>
+        </record>
+        
+        <record id="excel_form_view_declartion_details" model="ir.ui.view">
+			<field name="name">view.report</field>
+			<field name="model">view.report</field>
+			<field name="arch" type="xml">
+				<form string="popup">
+					<sheet>
+						<group col="4" colspan="2">
+							<field name="file_name" filename="datas_fname"/>
+							<field name="datas_fname"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+    	
+    </data>
+</openerp>

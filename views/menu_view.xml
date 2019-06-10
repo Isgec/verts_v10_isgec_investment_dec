@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+       
+		<menuitem name="Investment Declaration" 
+            id="version_declaration_menu"
+            web_icon="verts_v10_isgec_investment_dec,static/description/invest.png" sequence="2"/>		
+        <menuitem name="Declarations" id="declaration_sub_menu" groups="base.group_erp_manager,declaration_manager_group,declaration_user_group"
+            parent="version_declaration_menu" action="action_declaration" sequence="1"/>	
+		<menuitem name="Declaration Versions"
+            id="version_declaration_sub_menu" groups="base.group_erp_manager,declaration_manager_group"
+             parent="version_declaration_menu" action="action_version_declaration" sequence="2"/>
+        <menuitem name="Declaration Details" id="declaration_details_sub_menu_1" groups="base.group_erp_manager,declaration_manager_group"
+            parent="version_declaration_menu" action="action_declaration_details_issue" sequence="3"/>	
+        
+        
+</odoo>

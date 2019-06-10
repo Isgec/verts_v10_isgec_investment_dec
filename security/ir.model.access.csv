@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_declaration,declaration,model_declaration,base.group_user,1,1,1,1
+access_version_declaration,version.declaration,model_version_declaration,declaration_manager_group,base.group_user,1,1,1,1
+access_declaration_details_wizard,declaration.details.wizard,model_declaration_details_wizard,declaration_manager_group,base.group_user,1,1,1,1
+access_view_report,view.report,model_view_report,base.group_user,1,1,1,1
+access_declaration_user_group_version_declaration,declaration_user_group.version.declaration,model_version_declaration,declaration_user_group,declaration_user_group,1,0,0,0

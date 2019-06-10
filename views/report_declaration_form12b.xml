@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_from12B">
+		<t t-call="report.external_layout">
+			<div class="page">
+				<center>
+					<h4>
+						<header>
+							<u>FORM NO. 12B</u>
+						</header>
+					</h4>
+					<h6>
+						<header>[See rule 26A]</header>
+					</h6>
+					<h5>
+						<header>
+							Form for furnishing details for income under section
+							192(2) for
+							the year ending 31st March,
+							<b>
+								<span t-esc="doc.search_current_date()[1]" />
+							</b>
+							<br />
+							[To be filled by the employee, joined after 1st April 2018 only.]
+						</header>
+					</h5>
+				</center>
+				<div class="oe_structure" />
+				<div class="row">
+					<table width="100%"
+						t-attf-style="font-family: Arial,Helvetica ">
+						<tr>
+							<td width="25%">
+								<b>
+									<span>Name and address of the employee :</span>
+								</b>
+							</td>
+							<td width="75%">
+								<span t-field="doc.emp_name" />
+								<br />
+							</td>
+						</tr>
+						<tr>
+							<td width="25%">
+								<b>
+									<span>Permanent Account No. :</span>
+								</b>
+							</td>
+							<td width="75%">
+								<span t-field="doc.pan_no" />
+								<br />
+							</td>
+						</tr>
+						<tr>
+							<td width="25%">
+								<b>
+									<span>Residential status :</span>
+								</b>
+							</td>
+							<td width="75%">
+							</td>
+						</tr>
+						<tr>
+							<td width="25%">
+								<b>
+									<span>Date of Joining :</span>
+								</b>
+							</td>
+							<td width="75%">
+								<span t-field="doc.date_of_joining" />
+								<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table border="0" width='100%'
+						t-attf-style="padding:0px
+							20px 20px 20px;
+							  line-height:20px;font-family: Arial,Helvetica ">
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td width='5%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Serial Number
+							</td>
+							<td width='8%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Name and address of Employer(s)
+							</td>
+							<td width='8%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								TAN of the employeer(s) as allotted by the ITO
+							</td>
+							<td width='8%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Permanent Account Number of the employer(s)
+							</td>
+							<td width='5%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Period of Employment(For Current Year only)
+							</td>
+							<td width='40%'
+								t-attf-style="padding:5px 10px; border:1px solid" colspan="3">
+								Particulars of salary as defined in section 17, paid or due to
+								be paid to the employee during the year
+							</td>
+							<td width='5%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Total of columns 6, 7 and 8
+							</td>
+							<td width='8%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Amount deducted in respect of life insurance
+								premium,provident fund
+								contri-bution, etc. to which section 80C$
+								applies (Give details)
+							</td>
+							<td width='8%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Total Amount of tax deducted during the year
+								(enclose certificate
+								issued under secgtion 203)
+							</td>
+							<td width='5%' rowspan="2"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Remarks
+							</td>
+						</tr>
+						<tr>
+							<td width='13%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Total amount of salary excluding amounts required
+								to be shown in
+								columns 7 and 8
+							</td>
+							<td width='14%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Total amount of house rent allow-ance, convey-ance
+								allowance and
+								other allow-ances to the extent chargeable to
+								tax[See section
+								10(13A) read with rule 2A and section 10(14)
+							</td>
+							<td width='13%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Value of perquisites and amount of accre-tion to
+								employee’s provident
+								fund account(give details in the Anne-xure)
+							</td>
+						</tr>
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td width='5%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								1
+							</td>
+							<td width='8%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								2
+							</td>
+							<td width='8%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								3
+							</td>
+							<td width='8%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								4
+							</td>
+							<td width='5%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								5
+							</td>
+							<td width='13%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								6
+							</td>
+							<td width='14%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								7
+							</td>
+							<td width='13%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								8
+							</td>
+							<td width='5%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								9
+							</td>
+							<td width='8%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								10
+							</td>
+							<td width='8%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								11
+							</td>
+							<td width='5%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								12
+							</td>
+						</tr>
+
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								1
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details39" />
+								,
+								<span t-field="doc.details40" />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.tan1" />
+								<br />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.pan1" />
+								<br />
+							</td>
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details36" />
+								&#160;&#160;&#160;
+								<b>To</b>
+								&#160;&#160;&#160;
+								<span t-field="doc.to_date1" />
+								<br />
+							</td>
+							<td width='13%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='14%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='13%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details28" />
+								<br />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details30" />
+								<br />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details29" />
+								<br />
+							</td>
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.remark1" />
+							</td>
+						</tr>
+
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								2
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.employer_name2" />
+								,
+								<span t-field="doc.employer_address2" />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.tan2" />
+								<br />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.pan2" />
+								<br />
+							</td>
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details236" />
+								&#160;&#160;&#160;
+								<b>To</b>
+								&#160;&#160;&#160;
+								<span t-field="doc.to_date2" />
+								<br />
+							</td>
+							<td width='13%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='14%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='13%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details228" />
+								<br />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details230" />
+								<br />
+							</td>
+							<td width='8%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.details229" />
+								<br />
+							</td>
+							<td width='5%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.remark2" />
+							</td>
+						</tr>
+
+					</table>
+					<br />
+					<table width="100%"
+						t-attf-style="font-family: Arial,Helvetica ">
+						<tr>
+							<td width="100%" class="text-right">
+								<span t-field="doc.emp_name"></span>
+								<br />
+								<b>Signature of the employee</b>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<p style="page-break-before:always;">
+				</p>
+				<br />
+				<br />
+				<center>
+					<h4>
+						<header>Verification</header>
+					</h4>
+				</center>
+				<div class="oe_structure" />
+				<div class="row">
+					<table width="100%"
+						t-attf-style="font-family: Arial,Helvetica ">
+						<tr>
+							<td width="100%" class="text-left">
+								I, &#160;&#160;
+								<b>
+									<span t-field="doc.emp_name"></span>
+								</b>
+								&#160;&#160;, do
+								hereby declare that what is stated above is true
+								to the best of
+								my knowledge and belief.
+								Verified today,
+								the&#160;&#160;
+								<b>
+									<span t-esc="doc.search_current_date()[0]" />
+								</b>
+								&#160;&#160;day of
+								<b>
+									<span t-esc="doc.search_current_date()[2]" />
+								</b>
+								.
+							</td>
+						</tr>
+						<br />
+						<tr>
+							<td width="100%" class="text-left">
+								<b>Place ....................</b>
+							</td>
+						</tr>
+						<tr>
+							<td width="100%" class="text-right">
+								<span t-field="doc.emp_name"></span>
+								<br />
+								<b>Signature of the employee</b>
+							</td>
+						</tr>
+					</table>
+					<center>
+						<h4>
+							<header>ANNEXURE</header>
+						</h4>
+						<h6>
+							<header>[See column 8 of Form No. 12B]</header>
+						</h6>
+					</center>
+					<table width="100%"
+						t-attf-style="font-family: Arial,Helvetica ">
+						<tr>
+							<td width="100%" colspan="4">
+								<span>Particulars of value of perquisites and amount of
+									accretion to employee’s provident fund account
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td width="25%">
+								<b>
+									<span>Name and address of the employee</span>
+								</b>
+							</td>
+							<td width="75%" colspan="3">
+								<span t-field="doc.emp_name" />
+								<br />
+							</td>
+						</tr>
+						<tr>
+							<td width="20%">
+								<b>
+									<span>Permanent Account No. :</span>
+								</b>
+							</td>
+							<td width="30%">
+								<span t-field="doc.pan_no" />
+								<br />
+							</td>
+							<td width="20%">
+								<b>
+									<span>Period: Year ending 31st March :</span>
+								</b>
+							</td>
+							<td width="30%">
+								<span t-esc="doc.search_current_date()[1]" />
+								<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table border="0" width='100%'
+						t-attf-style="padding:0px
+							20px 20px 20px;
+							 line-height:20px;font-family: Arial,Helvetica ">
+
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td rowspan="3" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Name of the employee
+							</td>
+							<td rowspan="3" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								TAN/PAN of the employer
+							</td>
+							<td colspan="7" width='80%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Value of rent free accommodation or value of any
+								concession in rent
+								for the accommodation provided by the employer
+								(give basis of
+								computation) [See rules 3(a) and 3(b)
+							</td>
+						</tr>
+
+						<tr>
+							<td rowspan="2" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Where accommodation is unfurnished
+							</td>
+							<td colspan="4" class="text-center" width='50%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Where accommodation is furnished
+							</td>
+							<td rowspan="2" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Rent, if any, paid by emplyee
+							</td>
+							<td rowspan="2" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Value of prequisite(column 3 minus column 8 or
+								column 7 minus column
+								8 as may be applicable
+							</td>
+						</tr>
+
+
+						<tr>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Value as if accommodation is unfurnished
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Cost of furniture(including television sets, radio
+								sets,refrigerators, other household appliances and
+								air-conditioningplant or equipment)OR hire charges, if hired
+								from a third party
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Perquisite value of furniture (10% of column 5) OR
+								actual hire charges
+								payable
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								Total of columns 4 and 6
+							</td>
+						</tr>
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td width='10%' class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								1
+							</td>
+							<td class="text-center" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								2
+							</td>
+							<td class="text-center" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								3
+							</td>
+							<td class="text-center" width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								4
+							</td>
+							<td class="text-center" width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								5
+							</td>
+							<td class="text-center" width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								6
+							</td>
+							<td class="text-center" width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								7
+							</td>
+							<td class="text-center" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								8
+							</td>
+							<td class="text-center" width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								9
+							</td>
+						</tr>
+
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.employee_id.name" />
+								<br />
+							</td>
+							<td width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+								<span t-field="doc.employee_id.pan_no" />
+								<br />
+							</td>
+							<td width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='25%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td width='10%'
+								t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+						</tr>
+
+					</table>
+					<p style="page-break-before:always;">
+					</p>
+					<br />
+					<center>
+						<h4>
+							<header>ANNEXURE</header>
+						</h4>
+						<h6>
+							<header>(Contd.)</header>
+						</h6>
+					</center>
+					<table border="0"
+						t-attf-style="font-family: Arial,Helvetica ">
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Whether any conveyance has been provided by
+								the employer free or at a
+								concessional rate or where the employee
+								is allowed the use of
+								one or more motor cars owned or hired by
+								the employer, estimated
+								value of perquisite (give details) [See
+								rule 3(c)]
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Remuneration paid by employer for domestic
+								and/or personal services provided
+								to the employee(give details)
+								[See rule 3(g)]
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Value of free or concessional passages on
+								home leave and other
+								travelling to the extent chargeable to tax
+								(give details)[See
+								rule 2B read with section 10(5)(ii)]
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Estimated value of any other benefit or
+								amenity provided by the
+								employer,free of cost or at concessional
+								rate not included in
+								the preceding columns (give details), e.g.
+								supply of gas,
+								electricity or water for household consumption,
+								free educational
+								facilities, transport for family, etc. [See
+								rules 3(d), 3(e) and
+								3(f)]
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Employer’s contribution to recognised
+								provident fund in excess of 10% of
+								the employee’s salary [See
+								Schedule IV – PartA]
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Interest credited to the assesse’s account in
+								recognised provident fund
+								in excess of the rate fixsed by the
+								Central Government [See
+								Sechedule IV – Part A]
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+								Total of columns 9 to 15 carried to column 8
+								of Form No. 12B
+							</td>
+						</tr>
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								10
+							</td>
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								11
+							</td>
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								12
+							</td>
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								13
+							</td>
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								14
+							</td>
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								15
+							</td>
+							<td class="text-center"
+								t-attf-style="padding:5px 10px; border:1px solid">
+								16
+							</td>
+						</tr>
+						<tr t-attf-style="padding:5px 10px; border:1px solid">
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+							<td t-attf-style="padding:5px 10px; border:1px solid">
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</t>
+	</template>
+
+	<template id="report_declaration_from12B">
+		<t t-call="report.html_container">
+			<t t-foreach="docs" t-as="doc">
+				<t t-call="verts_v10_isgec_investment_dec.report_from12B" />
+			</t>
+		</t>
+	</template>
+
+</odoo>

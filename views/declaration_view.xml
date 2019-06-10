@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<record id="declaration_view_filter" model="ir.ui.view">
+			<field name="name">Declarations</field>
+			<field name="model">declaration</field>
+			<field name="arch" type="xml">
+				<search string="Search Declarations">
+					<field name="emp_name" string="Employee" />
+					<field name="emp_code" />
+					<separator />
+					<group expand="0" string="Group By">
+						<filter string="Version" domain="[]"
+							context="{'group_by':'declaration_version_id'}" />
+						<filter string="State" domain="[]"
+							context="{'group_by':'state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<record id="declaration_tree_view" model="ir.ui.view">
+			<field name="name">Declarations</field>
+			<field name="model">declaration</field>
+			<field name="arch" type="xml">
+				<tree string="Declaration Tree" delete="false" create="false">
+					<field name="emp_name" />
+					<field name="emp_code" />
+					<field name="due_date" />
+					<field name="declaration_version_id" />
+					<field name="employee_id" invisible="1" />
+					<field name="state" />
+					<button name="action_open_url" string="Attach Investment Proof" icon="fa-sign-in" class="oe_highlight" type="object"/>
+				</tree>
+			</field>
+		</record>
+		<record id="declaration_form_view" model="ir.ui.view">
+			<field name="name">Declarations</field>
+			<field name="model">declaration</field>
+			<field name="arch" type="xml">
+				<form string="Declaration form" delete="false" create="false">
+					<header>
+						<button name="button_submit"
+							confirm="The attached computation is subject to submission of documents by employee."
+							class="btn-primary" string="Submit" type="object" state="open"
+							attrs="{'invisible':[('state','!=','open')]}" />
+						<button name="button_reopen" string="Re-Open" type="object"
+							state="submit" attrs="{'invisible':[('state','!=','submit')]}"
+							groups="verts_v10_isgec_investment_dec.declaration_manager_group" />
+						<button name="button_done" class="btn-primary"
+							string="Final Submit" type="object" state="submit"
+							attrs="{'invisible':[('state','!=','submit')]}"
+							groups="verts_v10_isgec_investment_dec.declaration_manager_group" />
+				<!-- 		<button name="action_open_url" string="Attach Investment Proof" icon="fa-sign-in" class="oe_highlight" type="object"/> -->
+						<field name="state" widget="statusbar"
+							statusbar_visible="open,submit,done" />
+					</header>
+					<sheet>
+						<group>
+							<group colspan="4" col="4">
+								<field name="emp_name" />
+								<field name="emp_code" />
+								<field name="due_date" />
+								<field name="declaration_version_id"
+									options="{'no_create': True}" />
+								<field name="submit_date"
+									attrs="{'invisible':[('state','=','open')]}" />
+								<field name="submit_by"
+									attrs="{'invisible':[('state','=','open')]}" />
+								<field name="mobile"
+									attrs="{'readonly':[('state','!=','open')]}" required="1" />
+								<field name="email"
+									attrs="{'readonly':[('state','!=','open')]}" required="1" />
+								<field name="pan_no"
+									attrs="{'readonly':[('state','!=','open')]}" required="1" />
+								<field name="date_of_joining" />
+								<field name="urlgen" widget="url" nolabel="1" text="Attach Investment Proof"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="PREVIOUS EMPLOYER DETAILS">
+								<separator
+									string="To be filled by the employee, joined after 1st April 2018 only." />
+								<separator />
+								<table border="4">
+									<tr>
+										<td>
+											<separator string="S. No." />
+										</td>
+										<td>
+											<separator string="Previous Employer Details 1" />
+										</td>
+										<td>
+											<separator string="Details" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="a" />
+										</td>
+										<td>
+											<label
+												string="Income from Previous Employer (01/04/2018 to date of leaving from previous employer)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details28" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="b" />
+										</td>
+										<td>
+											<label string="TDS From Previous Employer" />
+										</td>
+										<td style="text-align:right">
+											<field name="details29" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="c" />
+										</td>
+										<td>
+											<label string="PF From Previous Employer" />
+										</td>
+										<td style="text-align:right">
+											<field name="details30" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="d" />
+										</td>
+										<td>
+											<label
+												string="Period of Employment(For Current Year only)" />
+										</td>
+										<td class="o_row">
+											<field name="details36" style="text-align:left"
+												nolabel="1" />
+											To
+											<field name="to_date1" style="text-align:left"
+												nolabel="1" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="e" />
+										</td>
+										<td>
+											<label string="Employer Name" />
+										</td>
+										<td style="text-align:right">
+											<field name="details39" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="f" />
+										</td>
+										<td>
+											<label string="Employer Address" />
+										</td>
+										<td style="text-align:right">
+											<field name="details40" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="g" />
+										</td>
+										<td>
+											<label string="TAN" />
+										</td>
+										<td style="text-align:right">
+											<field name="tan1" nolabel="1" style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="h" />
+										</td>
+										<td>
+											<label string="PAN" />
+										</td>
+										<td style="text-align:right">
+											<field name="pan1" nolabel="1" style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="i" />
+										</td>
+										<td>
+											<label string="Remarks" />
+										</td>
+										<td style="text-align:right">
+											<field name="remark1" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+								</table>
+
+								<br />
+								<br />
+
+								<table border="4">
+									<tr>
+										<td>
+											<separator string="S. No." />
+										</td>
+										<td>
+											<separator string="Previous Employer Details 2" />
+										</td>
+										<td>
+											<separator string="Details" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="a" />
+										</td>
+										<td>
+											<label
+												string="Income from Previous Employer (01/04/2018 to date of leaving from previous employer)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details228" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="b" />
+										</td>
+										<td>
+											<label string="TDS From Previous Employer" />
+										</td>
+										<td style="text-align:right">
+											<field name="details229" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="c" />
+										</td>
+										<td>
+											<label string="PF From Previous Employer" />
+										</td>
+										<td style="text-align:right">
+											<field name="details230" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="d" />
+										</td>
+										<td>
+											<label
+												string="Period of Employment(For Current Year only)" />
+										</td>
+										<td class="o_row">
+											<field name="details236" style="text-align:left"
+												nolabel="1" />
+											To
+											<field name="to_date2" style="text-align:left"
+												nolabel="1" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="e" />
+										</td>
+										<td>
+											<label string="Employer Name" />
+										</td>
+										<td style="text-align:right">
+											<field name="employer_name2" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="f" />
+										</td>
+										<td>
+											<label string="Employer Address" />
+										</td>
+										<td style="text-align:right">
+											<field name="employer_address2" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="g" />
+										</td>
+										<td>
+											<label string="TAN" />
+										</td>
+										<td style="text-align:right">
+											<field name="tan2" nolabel="1" style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="h" />
+										</td>
+										<td>
+											<label string="PAN" />
+										</td>
+										<td style="text-align:right">
+											<field name="pan2" nolabel="1" style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="i" />
+										</td>
+										<td>
+											<label string="Remarks" />
+										</td>
+										<td style="text-align:right">
+											<field name="remark2" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+								</table>
+
+							</page>
+
+							<page string="DEDUCTIONS U/S CHAPTER VI A">
+								<table border="4">
+									<tr>
+										<td>
+											<separator string="S. No." />
+										</td>
+										<td>
+											<separator
+												string="DECLARATION FORM FOR CLAIMING INCOME TAX  REBATE" />
+										</td>
+										<td>
+											<separator string="Details" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.A" />
+										</td>
+										<td>
+											<label
+												string="Life Insurance Premium paid for  self /wife/children." />
+										</td>
+										<td style="text-align:right">
+											<field name="details" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.B" />
+										</td>
+										<td>
+											<label
+												string="Amount deposited in the post office cumulative Time Deposit - 10 years or 15 years during the period. /Tax Saving FDRs.
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details1" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.C" />
+										</td>
+										<td>
+											<label
+												string="Amount deposited to the Public Provident Fund during the period  (PF deducted from salary should not be shown )
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details2" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.C.a" />
+										</td>
+										<td>
+											<label string="Date of PPF Deposit
+" />
+										</td>
+										<td>
+											<field name="details3" nolabel="1" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.C.b" />
+										</td>
+										<td>
+											<label string="A/c No. in which PPF is Deposited
+" />
+										</td>
+										<td>
+											<field name="details4" nolabel="1" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.D" />
+										</td>
+										<td>
+											<label
+												string="Amount deposited under Unit Linked Insurance plan (ULIP)
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details5" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.E" />
+										</td>
+										<td>
+											<label
+												string="Amount deposited under National Savings Certificate  - VIII  Issue  (please attach Photocopy/mention certificate No. and date )
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details6" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<!-- <tr > <td > <label string = "1.F" /> </td> <td > <label string
+										= "Interest accrued on National Savings Certificate "/> </td> <td style="text-align:right">
+										<field name = "details7" nolabel="1" style="text-align:right"/> </td> </tr> -->
+									<tr>
+										<td>
+											<label string="1.F" />
+										</td>
+										<td>
+											<label
+												string="Installment of part payment of Housing Loan (Principal) to any Bank/LIC/HDFC.
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details8" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="1.G" />
+										</td>
+										<td>
+											<label string="Equity Linked Savings Scheme
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details9" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.H" />
+										</td>
+										<td>
+											<label
+												string="Deduction in respect of Contribution to Sukanya Samriddhi Yojana" />
+										</td>
+										<td style="text-align:right">
+											<field name="details17" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.I" />
+										</td>
+										<td>
+											<label string="Mutual Fund" />
+										</td>
+										<td style="text-align:right">
+											<field name="details32" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.J" />
+										</td>
+										<td>
+											<label
+												string="Tuition Fee Paid (development fees or donation or other charges not to be included) to Educational Institutions for full Time Education (maximum 2 children)
+" />
+										</td>
+										<td style="text-align:right">
+											<field name="details10" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="1.K" />
+										</td>
+										<td>
+											<label
+												string="Deduction in respect of Contribution to certain Pension Fund –80CCC" />
+										</td>
+										<td style="text-align:right">
+											<field name="details11" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.L" />
+										</td>
+										<td>
+											<label
+												string="Medical Insurance Premium paid under Mediclaim Insurance Policy.(U/s 80D) Maximum Limit - 25,000/-" />
+										</td>
+										<td style="text-align:right">
+											<field name="medi_self" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+										</td>
+										<td style="text-align:right">
+											<label string="Applicable amount: " />
+										</td>
+										<td style="text-align:right">
+											<field name="details12" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.M" />
+										</td>
+										<td>
+											<label
+												string="Medical Insurance Premium paid For Parents/Senior Citizen Med. Ins. Policy.(U/s 80D) Maximum Limit: Non Senior Citizen-25,000, Senior Citizen-50,000" />
+										</td>
+										<td style="text-align:right">
+											<field name="medi_sen" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+										</td>
+										<td style="text-align:right">
+											<label string="Applicable amount: " />
+										</td>
+										<td style="text-align:right">
+											<field name="details31" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.N" />
+										</td>
+										<td>
+											<label
+												string="Payment on medical treatment of handicapped  dependents (U/s 80DD). Disability type: " />
+											<field name="type_disability" />
+										</td>
+										<td style="text-align:right">
+											<field name="details13" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.O" />
+										</td>
+										<td>
+											<label
+												string="Deduction in respect of Medical Treatment (80DDB-specific diseases)" />
+											<field name="type_treatment" />
+										</td>
+										<td style="text-align:right">
+											<field name="details18" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.P" />
+										</td>
+										<td>
+											<label
+												string="Deduction for self suffering from permanent physical disability.(u/s 80U) maximum limit – Rs. 125,000/-" />
+										</td>
+										<td style="text-align:right">
+											<field name="details15" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.Q" />
+										</td>
+										<td>
+											<label
+												string="Interest paid for loan taken for higher education – (u/s 80E) please enclosed certificate and specify the date of loan taken" />
+										</td>
+										<td style="text-align:right">
+											<field name="details14" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="1.R" />
+										</td>
+										<td>
+											<label
+												string="Deductions in respect of investment under Rajiv Gandhi Equity Savings Scheme (80CCG)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details19" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="1.S" />
+										</td>
+										<td>
+											<label
+												string="Deduction in respect of Contribution to National Pension Scheme(NPS)–80CCD(1B)(Maximum limit - Rs 50,000/- Additional from Sec80C)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details33" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="1.T" />
+										</td>
+										<td>
+											<label string="Employer Contribution to NPS-80CCD(2)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details16" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="1.U" />
+										</td>
+										<td>
+											<label string="Interest from Savings Bank A/C" />
+										</td>
+										<td style="text-align:right">
+											<field name="details34" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+								</table>
+							</page>
+							<page string="INCOME FROM HOUSE PROPERTY">
+								<table border="4">
+									<tr>
+										<td>
+											<separator string="S. No." />
+										</td>
+										<td>
+											<separator
+												string="DECLARATION FORM FOR CLAIMING INCOME TAX  REBATE" />
+										</td>
+										<td>
+											<separator string="Details" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2" />
+										</td>
+										<td>
+											<label string="Income / Loss(-) from House Property." />
+										</td>
+										<td style="text-align:right">
+											<field name="details181" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.A" />
+										</td>
+										<td>
+											<label
+												string="Self occupied residential property has been acquired or constructed before end of the Current Financial Year (No Benefit is available, if property is not completed/ Possession)" />
+										</td>
+										<td>
+											<field name="details22"
+												attrs="{'required':['|',('details20', '>', 0.00),('pre_emi_interest_paid', '>', 0.00)],'readonly': [('state', '!=', 'open')]}"
+												nolabel="1" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.B" />
+										</td>
+										<td>
+											<label
+												string="Interest paid for one self occupied residential property" />
+										</td>
+										<td style="text-align:right">
+											<field name="details20" nolabel="1"
+												style="text-align:right"
+												attrs="{'readonly':['|',('details22', '=', 'no'),('state', '!=', 'open')]}" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.C" />
+										</td>
+										<td>
+											<label
+												string="PRE EMI INTEREST PAID(for Self Occupied Property)" />
+										</td>
+										<td style="text-align:right">
+											<field name="pre_emi_interest_paid" nolabel="1"
+												style="text-align:right"
+												attrs="{'readonly':['|',('details22', '=', 'no'),('state', '!=', 'open')]}" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.D" />
+										</td>
+										<td>
+											<label string="Lender Name1/Bank (Self Occupied Property)" />
+										</td>
+										<td>
+											<field name="lender_name" nolabel="1" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="2.E" />
+										</td>
+										<td>
+											<label
+												string="PAN of Lender1/Bank (Mandatory)(Self Occupied Property)." />
+										</td>
+										<td>
+											<field name="details191" nolabel="1" />
+										</td>
+									</tr>
+
+
+									<tr>
+										<td>
+											<label string="2.F" />
+										</td>
+										<td>
+											<label string="Lender Name2/Bank (Self Occupied Property)" />
+										</td>
+										<td>
+											<field name="lender_name2" nolabel="1" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="2.G" />
+										</td>
+										<td>
+											<label
+												string="PAN of Lender2/Bank (Mandatory)(Self Occupied Property)." />
+										</td>
+										<td>
+											<field name="pan_no_lender2" nolabel="1" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.H" />
+										</td>
+										<td>
+											<label
+												string="Property Situated at (place of  said property)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details37" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.I" />
+										</td>
+										<td>
+											<label string="City" />
+										</td>
+										<td style="text-align:right">
+											<field name="details38" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.J" />
+										</td>
+										<td>
+											<label
+												string="Other Property has been acquired or constructed before end of the Current Financial Year (No Benefit is available, if property is not completed/ Possession)" />
+										</td>
+										<td>
+											<field name="details24" nolabel="1"
+												attrs="{'required':['|',('details23', '>', 0.00),('details27', '>', 0.00)]}" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.K" />
+										</td>
+										<td>
+											<label string="Interest paid for other properties" />
+										</td>
+										<td style="text-align:right">
+											<field name="details23" nolabel="1"
+												style="text-align:right"
+												attrs="{'readonly':['|',('details24', '=', 'no'),('state', '!=', 'open')]}" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.L" />
+										</td>
+										<td>
+											<label string="PRE EMI INTEREST PAID(Other Property)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details27" nolabel="1"
+												style="text-align:right"
+												attrs="{'readonly':['|',('details24', '=', 'no'),('state', '!=', 'open')]}" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.M" />
+										</td>
+										<td>
+											<label
+												string="Annual Rental income from said property(During the Current Financial Year)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details25" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.N" />
+										</td>
+										<td>
+											<label string="Fair rent of same locality (per month)" />
+										</td>
+										<td style="text-align:right">
+											<field name="details26" nolabel="1"
+												style="text-align:right" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label string="2.O" />
+										</td>
+										<td>
+											<label string="Lender Name1/Bank (Other Property)" />
+										</td>
+										<td>
+											<field name="other_lender_name" nolabel="1" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="2.P" />
+										</td>
+										<td>
+											<label
+												string="PAN of Lender1/Bank (Mandatory)(Other Property)." />
+										</td>
+										<td>
+											<field name="other_pan_no_lender1" nolabel="1" />
+										</td>
+									</tr>
+
+
+									<tr>
+										<td>
+											<label string="2.Q" />
+										</td>
+										<td>
+											<label string="Lender Name2/Bank (Other Property)" />
+										</td>
+										<td>
+											<field name="other_lender_name2" nolabel="1" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<label string="2.R" />
+										</td>
+										<td>
+											<label
+												string="PAN of Lender2/Bank (Mandatory)(Other Property)." />
+										</td>
+										<td>
+											<field name="other_pan_no_lender2" nolabel="1" />
+										</td>
+									</tr>
+								</table>
+							</page>
+							<page string="DEDUCTION U/S 10 (13-A) HRA">
+								<group>
+									<group string="Details of Rented Accommodation:" >
+                                        <div class="o_address_format" name="div_address">
+                                            <!--<field name="full_name_of_landlord"-->
+                                                 <!--placeholder="john..." class="o_address_address" />-->
+                                            <field name="street1" placeholder="Street1..." class="o_address_street" />
+                                            <field name="street2" placeholder="Street2..." class="o_address_street" />
+                                            <field name="city" placeholder="City" class="o_address_city" />
+                                            <field name="states" class="o_address_state" placeholder="State" options="{'no_edit': True, 'no_create': True}"/>
+                                            <field name="zip_code" placeholder="ZIP" class="o_address_zip" />
+                                            <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_edit': True, 'no_create': True}" />
+                                        </div>
+									</group>
+                                    <group>
+                                        <field name="house_rent_paid_per_month" string="House Rent Paid (Annually)During the Current Financial Year" />
+                                         <field name="full_name_of_landlord" placeholder="john..." />
+                                        <field name="pan_of_landlord" string="PAN of Landlord" attrs="{'required': [('house_rent_paid_per_month', '>', '100000.00')]}" />
+                                        <field name="city_metro" string="Is City Metro? (Metro Cities are Only-Delhi, Mumbai, Chennai,  Kolkata)" />
+									</group>
+								</group>
+							</page>
+
+							<!--<page string="DEDUCTION U/S 10 (13-A) HRA">-->
+									<!--<table width="100%">-->
+									<!--<tr>-->
+										<!--<td width="40%">-->
+											<!--<table>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<label string="Landlord Details" />-->
+														<!--<div class="o_address_format" name="div_address">-->
+															<!--<field name="full_name_of_landlord"-->
+																<!--placeholder="john..." class="o_address_address" />-->
+															<!--<field name="street1" placeholder="Street1..."-->
+																<!--class="o_address_street" />-->
+															<!--<field name="street2" placeholder="Street 2..."-->
+																<!--class="o_address_street" />-->
+															<!--<field name="city" placeholder="City"-->
+																<!--class="o_address_city" />-->
+															<!--<field name="country_id" placeholder="Country" />-->
+															<!--<field name="states"-->
+																<!--domain="[('country_id','=',country_id)]"-->
+																<!--class="o_address_state" placeholder="State" />-->
+															<!--<field name="zip_code" placeholder="ZIP"-->
+																<!--class="o_address_zip" />-->
+														<!--</div>-->
+													<!--</td>-->
+												<!--</tr>-->
+											<!--</table>-->
+										<!--</td>-->
+										<!--<td width="5%">-->
+											<!--<table>-->
+												<!--<tr>-->
+													<!--<td>-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+													<!--</td>-->
+												<!--</tr>-->
+											<!--</table>-->
+										<!--</td>-->
+										<!--<td width="15%">-->
+											<!--<table>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<p>-->
+															<!--<b>House Rent Paid (Annually)During the Current Financial-->
+																<!--Year</b>-->
+														<!--</p>-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<p>-->
+															<!--<b>PAN of Landlord</b>-->
+														<!--</p>-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<p>-->
+															<!--<b>Is City Metro</b>-->
+														<!--</p>-->
+													<!--</td>-->
+												<!--</tr>-->
+											<!--</table>-->
+										<!--</td>-->
+										<!--<td width="40%">-->
+											<!--<table>-->
+												<!--<tr>-->
+													<!--<td style="text-align:right">-->
+														<!--<field name="house_rent_paid_per_month"-->
+															<!--style="text-align:right" />-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<field name="pan_of_landlord"-->
+															<!--placeholder="PAN No..."-->
+															<!--attrs="{'required': [('house_rent_paid_per_month', '>', '100000.00')]}" />-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<field name="check" invisible="1" />-->
+													<!--</td>-->
+												<!--</tr>-->
+												<!--<tr>-->
+													<!--<td>-->
+														<!--<field name="city_metro" />-->
+													<!--</td>-->
+												<!--</tr>-->
+											<!--</table>-->
+										<!--</td>-->
+									<!--</tr>-->
+								<!--</table>-->
+							<!--</page>-->
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="action_declaration" model="ir.actions.act_window">
+			<field name="name">Declarations</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">declaration</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="declaration_tree_view" />
+			<field name="view_mode">tree,form</field>
+
+		</record>
+	</data>
+</odoo>
