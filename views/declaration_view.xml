@@ -11,6 +11,8 @@
 					<field name="emp_code" />
 					<separator />
 					<group expand="0" string="Group By">
+						<filter string="Fiscal year" name="fiscal_year" domain="[]"
+							context="{'group_by':'fiscal_year'}" />
 						<filter string="Version" domain="[]"
 							context="{'group_by':'declaration_version_id'}" />
 						<filter string="State" domain="[]"
@@ -63,6 +65,7 @@
 								<field name="due_date" />
 								<field name="declaration_version_id"
 									options="{'no_create': True}" />
+								<field name="fiscal_year" />
 								<field name="submit_date"
 									attrs="{'invisible':[('state','=','open')]}" />
 								<field name="submit_by"
@@ -80,7 +83,7 @@
 						<notebook>
 							<page string="PREVIOUS EMPLOYER DETAILS">
 								<separator
-									string="To be filled by the employee, joined after 1st April 2018 only." />
+									string="To be filled by the employee, joined after 1st April 2019 only." />
 								<separator />
 								<table border="4">
 									<tr>
@@ -100,7 +103,7 @@
 										</td>
 										<td>
 											<label
-												string="Income from Previous Employer (01/04/2018 to date of leaving from previous employer)" />
+												string="Income from Previous Employer (01/04/2019 to date of leaving from previous employer)" />
 										</td>
 										<td style="text-align:right">
 											<field name="details28" nolabel="1"
@@ -228,7 +231,7 @@
 										</td>
 										<td>
 											<label
-												string="Income from Previous Employer (01/04/2018 to date of leaving from previous employer)" />
+												string="Income from Previous Employer (01/04/2019 to date of leaving from previous employer)" />
 										</td>
 										<td style="text-align:right">
 											<field name="details228" nolabel="1"
@@ -392,7 +395,7 @@
 												style="text-align:right" />
 										</td>
 									</tr>
-									<tr>
+									<!-- <tr>
 										<td>
 											<label string="1.C.a" />
 										</td>
@@ -415,7 +418,7 @@
 										<td>
 											<field name="details4" nolabel="1" />
 										</td>
-									</tr>
+									</tr> -->
 									<tr>
 										<td>
 											<label string="1.D" />
@@ -656,7 +659,7 @@
 												style="text-align:right" />
 										</td>
 									</tr>
-									<tr>
+									<!-- <tr>
 										<td>
 											<label string="1.T" />
 										</td>
@@ -680,7 +683,7 @@
 											<field name="details34" nolabel="1"
 												style="text-align:right" />
 										</td>
-									</tr>
+									</tr> -->
 								</table>
 							</page>
 							<page string="INCOME FROM HOUSE PROPERTY">
@@ -759,7 +762,7 @@
 											<label string="Lender Name1/Bank (Self Occupied Property)" />
 										</td>
 										<td>
-											<field name="lender_name" nolabel="1" />
+											<field name="lender_name" nolabel="1" attrs="{'required':[('details20', '>', 0.00)]}" />
 										</td>
 									</tr>
 
@@ -772,7 +775,7 @@
 												string="PAN of Lender1/Bank (Mandatory)(Self Occupied Property)." />
 										</td>
 										<td>
-											<field name="details191" nolabel="1" />
+											<field name="details191" nolabel="1" attrs="{'required':[('details20', '>', 0.00)]}"/>
 										</td>
 									</tr>
 
@@ -785,7 +788,7 @@
 											<label string="Lender Name2/Bank (Self Occupied Property)" />
 										</td>
 										<td>
-											<field name="lender_name2" nolabel="1" />
+											<field name="lender_name2" nolabel="1" attrs="{'required':[('details20', '>', 0.00)]}"/>
 										</td>
 									</tr>
 
@@ -798,7 +801,7 @@
 												string="PAN of Lender2/Bank (Mandatory)(Self Occupied Property)." />
 										</td>
 										<td>
-											<field name="pan_no_lender2" nolabel="1" />
+											<field name="pan_no_lender2" nolabel="1" attrs="{'required':[('details20', '>', 0.00)]}"/>
 										</td>
 									</tr>
 									<tr>
@@ -898,7 +901,7 @@
 											<label string="Lender Name1/Bank (Other Property)" />
 										</td>
 										<td>
-											<field name="other_lender_name" nolabel="1" />
+											<field name="other_lender_name" nolabel="1" attrs="{'required':[('details23', '>', 0.00)]}"/>
 										</td>
 									</tr>
 
@@ -911,7 +914,7 @@
 												string="PAN of Lender1/Bank (Mandatory)(Other Property)." />
 										</td>
 										<td>
-											<field name="other_pan_no_lender1" nolabel="1" />
+											<field name="other_pan_no_lender1" nolabel="1" attrs="{'required':[('details23', '>', 0.00)]}"/>
 										</td>
 									</tr>
 
@@ -924,7 +927,7 @@
 											<label string="Lender Name2/Bank (Other Property)" />
 										</td>
 										<td>
-											<field name="other_lender_name2" nolabel="1" />
+											<field name="other_lender_name2" nolabel="1" attrs="{'required':[('details23', '>', 0.00)]}"/>
 										</td>
 									</tr>
 
@@ -937,7 +940,7 @@
 												string="PAN of Lender2/Bank (Mandatory)(Other Property)." />
 										</td>
 										<td>
-											<field name="other_pan_no_lender2" nolabel="1" />
+											<field name="other_pan_no_lender2" nolabel="1" attrs="{'required':[('details23', '>', 0.00)]}"/>
 										</td>
 									</tr>
 								</table>
@@ -1084,6 +1087,7 @@
 			<field name="res_model">declaration</field>
 			<field name="view_type">form</field>
 			<field name="view_id" ref="declaration_tree_view" />
+			<field name="context">{"search_default_fiscal_year":1}</field>
 			<field name="view_mode">tree,form</field>
 
 		</record>

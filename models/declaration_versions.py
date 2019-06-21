@@ -1,14 +1,18 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
+from odoo.exceptions import UserError
 
 
 class version_declaration(models.Model):
     _name = 'version.declaration'
+    _inherit = ['mail.thread']
     
     name = fields.Char('Version Name',required=True, help="Version such 2017 May or 2018 Feb.")
     due_date=fields.Date('Due Date' ,required=True)
     fiscal_year = fields.Char('Fiscal year',required=True, help="Fiscal year for which declarations to be made.")
-    state = fields.Selection([('draft', 'Draft'),('open','Open'),('close','Close'),('cancel', 'Cancelled')],string='Cancel', default='draft')
-    
+    state = fields.Selection([('draft', 'Draft'),('open','Open'),('close','Close'),('cancel', 'Cancelled')],string='Cancel', default='draft', track_visibility='onchange')
+#     _sql_constraints = [
+#         ('issue_number_uniq', 'unique(name)', 'Version Number must be unique !!'),
+#     ]
     @api.multi
     def button_close(self):
         return self.write({'state': 'close'})
@@ -70,7 +74,23 @@ class version_declaration(models.Model):
                                             'details191':0})
         return True
     
-    
+    @api.model
+    def create(self, vals):
+        if 'name' in vals and vals['name']:
+            version = self.search([('name','=', vals['name'])])
+            if version:
+                raise UserError(_('You can not create same version name!')) 
+        res = super(version_declaration, self).create(vals)
+        return res
+     
+    @api.multi
+    def write(self, vals):
+        if 'name' in vals and vals['name']:
+            version = self.search([('name','=', vals['name'])])
+            if version:
+                raise UserError(_('You can not update same version name!')) 
+        return super(version_declaration, self).write(vals)
+     
     
     
     

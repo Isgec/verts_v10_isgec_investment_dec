@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 	<data>
+	
+		<record id="declaration_version_view_filter" model="ir.ui.view">
+			<field name="name">Declaration Versions</field>
+			<field name="model">version.declaration</field>
+			<field name="arch" type="xml">
+				<search string="Search Declaration Versions">
+					<group expand="0" string="Group By">
+						<filter string="Fiscal year" name="fiscal_year" domain="[]"
+							context="{'group_by':'fiscal_year'}" />
+					</group>
+				</search>
+			</field>
+		</record>
 
 		<record id="version_declaration_tree_view" model="ir.ui.view">
 			<field name="name">Declaration Versions</field>
 			<field name="model">version.declaration</field>
 			<field name="arch" type="xml">
 				<tree string="Declaration Versions Tree">
-					<field name="due_date" />
+					<field name="due_date" invisible="1"/>
 					<field name="name" />
 				</tree>
 			</field>
@@ -46,6 +59,12 @@
 								attrs="{'readonly':[('state','=','close')]}" />
 						</group>
 					</sheet>
+					<!-- tracker visiblity by.................daud -->
+					<div class="oe_chatter">
+	                    <field name="message_follower_ids" widget="mail_followers"/>
+	                    <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                    <!-- tracker visiblity by.................daud -->
 				</form>
 			</field>
 		</record>
@@ -56,6 +75,7 @@
 			<field name="res_model">version.declaration</field>
 			<field name="view_type">form</field>
 			<field name="view_id" ref="version_declaration_tree_view" />
+			<field name="context">{"search_default_fiscal_year":1}</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 	</data>

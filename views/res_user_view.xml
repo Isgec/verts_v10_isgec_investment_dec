@@ -1,6 +1,5 @@
 <odoo>
 	<data>
-		
 		<record id="base.view_users_form_simple_modif" model="ir.ui.view">
             <field name="name">res.users.preferences.form</field>
             <field name="model">res.users</field>

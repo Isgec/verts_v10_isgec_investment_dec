@@ -36,6 +36,7 @@ class declaration(models.Model):
     submit_by = fields.Many2one("res.users", string="Submit By", readonly=True)
     email = fields.Char('Email',copy=False, states={'open': [('readonly', False)]})
     mobile = fields.Char('Mobile',copy=False, states={'open': [('readonly', False)]})
+    fiscal_year = fields.Char(related='declaration_version_id.fiscal_year', string='Fiscal Year',readonly=True, store=True, help="Fiscal year for which declarations to be made.")
     
     @api.multi
     def search_current_date(self):
@@ -49,8 +50,7 @@ class declaration(models.Model):
         lst.append(current_year)
         lst.append(day_name)
         return lst
-
-
+    
     
     @api.depends('medi_self','medi_sen','details41')
     def _calc_medi(self):
